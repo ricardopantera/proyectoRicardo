@@ -1,0 +1,47 @@
+﻿@model IEnumerable<proyectoRicardo.Models.Productos>
+
+@{
+    ViewBag.Title = "ProductosIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProductosIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "agregarProducto")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECIO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditarProducto", new { id=item.ID }) |
+            @Html.ActionLink("Details", "DetalleDelProdcuto",  new { id=item.ID }) |
+            @Html.ActionLink("Delete", "eliminarProductos", new { id=item.ID })
+           
+        </td>
+    </tr>
+}
+
+</table>
